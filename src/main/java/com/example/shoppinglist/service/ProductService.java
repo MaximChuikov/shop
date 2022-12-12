@@ -12,20 +12,23 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public void save(String title) {
+    public Product save(String title) {
         Product product = new Product(title);
         productRepository.save(product);
+        return product;
     }
 
-    public void update(Long id, String title, boolean isBought) {
+    public Product update(Long id, String title, boolean isBought) {
         Product product = new Product(id, title);
         product.setBought(isBought);
         productRepository.save(product);
+        return product;
     }
 
-    public void delete(Long id) {
+    public long delete(Long id) {
         var product = productRepository.findById(id).get();
         productRepository.delete(product);
+        return product.getId();
     }
 
     public Optional<Product> findById(Long id) {

@@ -25,6 +25,12 @@ public class Product implements Serializable {
         this.isBought = isBought;
     }
 
+    public Product(Long id, String name, Boolean bought) {
+        this.id = id;
+        this.name = name;
+        this.isBought = bought;
+    }
+
     public Product() {
 
     }
